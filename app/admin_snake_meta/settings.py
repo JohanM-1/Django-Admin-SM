@@ -114,7 +114,7 @@ DATABASES = {
         'NAME': 'snakemeta',
         'USER': 'postgres',
         'PASSWORD': 'postgres123456',
-        'HOST': 'localhost',
+        'HOST': 'host.docker.internal',
         'PORT': '5432',
     }
 }
