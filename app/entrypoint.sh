@@ -1,4 +1,11 @@
 #!/bin/sh
+
+# Crear directorio de logs si no existe
+mkdir -p /var/log/app
+
+# Redirigir toda la salida a un archivo de log con timestamp
+exec 1> >(while read line; do echo "$(date '+%Y-%m-%d %H:%M:%S') $line" | tee -a "/var/log/app/app.log"; done) 2>&1
+
 python3 manage.py makemigrations
 python3 manage.py migrate
 
