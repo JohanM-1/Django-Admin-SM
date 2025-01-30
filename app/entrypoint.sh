@@ -14,6 +14,10 @@ PGPASSWORD=${DB_PASSWORD} psql -h ${DB_HOST} -U ${DB_USER} -p ${DB_PORT} -tc "SE
 python3 manage.py makemigrations
 python3 manage.py migrate
 
+# Collect static files
+echo "Collecting static files..."
+python3 manage.py collectstatic --noinput
+
 # Print environment variables to verify
 echo "Checking environment variables..."
 echo "DJANGO_SUPERUSER_USERNAME: ${DJANGO_SUPERUSER_USERNAME}"
