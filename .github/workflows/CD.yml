@@ -1,0 +1,29 @@
+name: Deploy to Self-Hosted Runner
+
+on:
+  push:
+    branches:
+      - main  # Puedes cambiarlo a la rama que prefieras
+
+jobs:
+  deploy:
+    runs-on: self-hosted  # Usa tu self-hosted runner
+    steps:
+      - name: 📥 Clonar o actualizar el repositorio
+        run: |
+          if [ ! -d "mi-repo" ]; then
+            git clone https://github.com/JohanM-1/Django-Admin-SM.git
+          else
+            cd mi-repo
+            git pull origin main
+          fi
+
+      - name: 🐳 Construir y desplegar con Docker Compose
+        run: |
+          cd mi-repo
+          docker compose up --build -d
+
+      - name: 🧹 Limpiar contenedores antiguos
+        run: |
+          docker system prune -f
+
