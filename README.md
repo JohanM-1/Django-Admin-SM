@@ -3,7 +3,7 @@ Te ayudo a crear un README.md completo para el proyecto:
 ```markdown:README.md
 # Snake Meta - Admin Panel
 
-Sistema administrativo para gestión de datos de serpientes, desarrollado con Django.
+Sistema administrativo para gestión de datos de serpientes, desarrollado con Django
 
 ## Requisitos Previos
 
