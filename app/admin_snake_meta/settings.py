@@ -165,3 +165,15 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# CSRF Configuration
+DOMAIN = os.getenv('DOMAIN', 'localhost')  # Valor por defecto 'localhost'
+
+CSRF_TRUSTED_ORIGINS = [
+    f'https://{DOMAIN}',
+    f'https://*.{DOMAIN}',    # Para subdominios
+    'http://localhost:8080',  # Para desarrollo local
+    'http://127.0.0.1:8080', # Para desarrollo local
+]
+
+
