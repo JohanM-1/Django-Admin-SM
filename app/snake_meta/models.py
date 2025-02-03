@@ -18,6 +18,9 @@ class Usuario(models.Model):
     def __str__(self):
         return f"{self.nombre} {self.apellido}"
 
+    class Meta:
+        db_table = 'usuario'
+
 class Serpiente(models.Model):
     idSerpiente = models.AutoField(primary_key=True)
     nombre3 = models.CharField(max_length=45)
@@ -34,6 +37,9 @@ class Serpiente(models.Model):
     def __str__(self):
         return self.nombre3
 
+    class Meta:
+        db_table = 'serpiente'
+
 class Georeferencia(models.Model):
     idGeoreferencia = models.AutoField(primary_key=True)
     fecha = models.CharField(max_length=20)
@@ -49,6 +55,9 @@ class Georeferencia(models.Model):
         on_delete=models.CASCADE,
         db_column='usuario_id_usuario'
     )
+
+    class Meta:
+        db_table = 'georeferencia'
 
 class TimestampMixin(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
@@ -73,6 +82,12 @@ class Reporte(TimestampMixin):
         db_column='usuario_id_usuario'
     )
 
+    def __str__(self):
+        return self.titulo
+
+    class Meta:
+        db_table = 'reporte'
+
 class Comentario(TimestampMixin):
     idComentario = models.AutoField(primary_key=True)
     contenido = models.CharField(max_length=1000)
@@ -92,4 +107,7 @@ class Comentario(TimestampMixin):
             'fecha de creacion': self.created_at,
             'contenido': self.contenido
         }
+
+    class Meta:
+        db_table = 'comentario'
         
