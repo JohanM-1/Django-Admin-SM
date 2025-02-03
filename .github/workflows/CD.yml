@@ -3,7 +3,7 @@ name: Deploy to Self-Hosted Runner 1
 on:
   push:
     branches:
-      - main  # Puedes cambiarlo a la rama que prefieras
+      - master  # Puedes cambiarlo a la rama que prefieras
 
 jobs:
   deploy:
@@ -11,6 +11,7 @@ jobs:
     steps:
       - name: 📥 Clonar o actualizar el repositorio
         run: |
+          ls
           if [ ! -d "mi-repo" ]; then
             git clone https://github.com/JohanM-1/Django-Admin-SM.git
           else
