@@ -38,7 +38,7 @@ class Serpiente(models.Model):
         return self.nombre3
 
     class Meta:
-        db_table = 'serpiente'
+        db_table = 'serpientes'
 
 class Georeferencia(models.Model):
     idGeoreferencia = models.AutoField(primary_key=True)
