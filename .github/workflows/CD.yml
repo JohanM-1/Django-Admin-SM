@@ -11,13 +11,7 @@ jobs:
     steps:
       - name: 📥 Clonar o actualizar el repositorio
         run: |
-          ls
-          if [ ! -d "mi-repo" ]; then
-            git clone https://github.com/JohanM-1/Django-Admin-SM.git
-          else
-            cd mi-repo
-            git pull origin main
-          fi
+          git pull
 
       - name: 🐳 Construir y desplegar con Docker Compose
         run: |
