@@ -15,7 +15,6 @@ jobs:
 
       - name: 🐳 Construir y desplegar con Docker Compose
         run: |
-          cd mi-repo
           docker compose up --build -d
 
       - name: 🧹 Limpiar contenedores antiguos
